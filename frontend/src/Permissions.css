@@ -1,0 +1,115 @@
+.permissions-page {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .club-logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .club-logo {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+  }
+  
+  .permission-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .title-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    border: 2px solid #4d79ff;
+    border-radius: 10px;
+  }
+  
+  .editor-controls {
+    margin-bottom: 10px;
+    text-align: right;
+  }
+  
+  .editor-controls button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    background: linear-gradient(120deg, #ff4d4d, #4d79ff);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .body-editor {
+    min-height: 150px;
+    padding: 10px;
+    border: 2px solid #4d79ff;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+  
+  .permission-boxes-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .permission-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #4d79ff;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .permission-box select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .decision-buttons button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: linear-gradient(120deg, #ff4d4d, #4d79ff);
+    color: #fff;
+  }
+  
+  .note-input {
+    flex: 1;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .add-box-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(120deg, #ff4d4d, #4d79ff);
+    color: #fff;
+    cursor: pointer;
+  }
+  

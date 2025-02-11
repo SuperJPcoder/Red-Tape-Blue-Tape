@@ -7,6 +7,7 @@ import { Budget } from './Budget'
 import { Reimbursements } from './Reimbursements'
 import { AdminDashboard } from './AdminDashboard'
 import { Login } from './Login'
+import { Permissions } from './Permissions'
 import { NotFound } from './NotFound'
 
 function Navbar() {
@@ -21,6 +22,7 @@ function Navbar() {
         <Link to="/reimbursements" className="navbar-link">Reimbursements</Link>
         <Link to="/admin" className="navbar-link">Admin</Link>
         <Link to="/login" className="navbar-link">Login</Link>
+        <Link to="/permissions" className="navbar-link">Permissions</Link>
       </div>
     </nav>
   )
@@ -128,6 +130,7 @@ function App() {
           <Route path="/reimbursements" element={<Reimbursements />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/permissions" element={<Permissions />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
