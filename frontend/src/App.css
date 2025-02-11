@@ -5,6 +5,7 @@ body {
   color: #333;
   overflow-x: hidden;
 }
+
 .navbar {
   position: sticky;
   top: 0;
@@ -16,16 +17,29 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   z-index: 1000;
 }
+
 .navbar-logo {
   font-size: 26px;
   font-weight: bold;
-  color: #ecf0f1;
   text-decoration: none;
+  /* Continuous dynamic gradient animation for the logo text */
+  background: linear-gradient(120deg, #ff4d4d, #4d79ff, #ff4d4d);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: dynamicText 3s linear infinite;
 }
+
+@keyframes dynamicText {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
 .navbar-right {
   display: flex;
   gap: 20px;
 }
+
 .navbar-link {
   position: relative;
   text-decoration: none;
@@ -36,6 +50,7 @@ body {
   overflow: hidden;
   transition: color 0.3s ease;
 }
+
 .navbar-link:before {
   content: '';
   position: absolute;
@@ -49,21 +64,21 @@ body {
   border-radius: 8px;
   z-index: -1;
 }
+
 .navbar-link:hover {
   color: #fff;
 }
+
 .navbar-link:hover:before {
   transform: translateX(100%);
   animation: gradientShift 1s linear infinite;
 }
+
 @keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
+
 .fixed-header {
   position: fixed;
   top: 60px;
@@ -73,23 +88,31 @@ body {
   background: linear-gradient(90deg, #ff4d4d, #4d79ff);
   z-index: 1;
 }
+
 .site-title {
   margin: 0;
   font-size: 42px;
   font-weight: bold;
   color: #fff;
 }
+
 .site-tagline {
   margin: 10px 0 0 0;
   font-size: 20px;
   color: #f0f4f8;
 }
+
+/* The scrolling content: its background (a cool gradient) and higher z-index ensure it covers the fixed header as you scroll */
 .content {
   position: relative;
   z-index: 2;
   margin-top: 200px;
   padding: 20px;
+  background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
+
 .image-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -97,34 +120,71 @@ body {
   padding: 50px 20px;
   justify-items: center;
 }
+
 .grid-item {
   width: 100px;
   height: 100px;
   overflow: hidden;
 }
+
 .grid-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
 }
+
 .what-we-do {
   text-align: center;
   padding: 60px 20px;
+  background: linear-gradient(135deg, #fceabb, #f8b500);
+  border-radius: 20px;
+  margin: 40px 0;
 }
+
 .what-we-do h2 {
   font-size: 32px;
   margin-bottom: 20px;
   color: #2c3e50;
 }
-.what-we-do p {
-  font-size: 18px;
-  color: #4a4a4a;
+
+.what-we-do-boxes {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
 }
+
+.what-box {
+  background: #fff;
+  border: 2px solid #4d79ff;
+  border-radius: 15px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.what-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.what-box h3 {
+  margin-top: 0;
+  color: #4d79ff;
+}
+
+.what-box p {
+  color: #555;
+  line-height: 1.5;
+}
+
 .get-started {
   text-align: center;
   padding: 40px 20px;
 }
+
 .get-started button {
   font-size: 20px;
   padding: 15px 40px;
@@ -136,6 +196,7 @@ body {
   transition: background 0.3s, transform 0.3s;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 .get-started button:hover {
   background: #4d79ff;
   transform: scale(1.05);

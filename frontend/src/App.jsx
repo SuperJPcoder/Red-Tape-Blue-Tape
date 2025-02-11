@@ -8,6 +8,7 @@ import { Reimbursements } from './Reimbursements'
 import { AdminDashboard } from './AdminDashboard'
 import { Login } from './Login'
 import { NotFound } from './NotFound'
+
 function Navbar() {
   return (
     <nav className="navbar">
@@ -24,6 +25,7 @@ function Navbar() {
     </nav>
   )
 }
+
 function FixedHeader() {
   return (
     <div className="fixed-header">
@@ -32,6 +34,7 @@ function FixedHeader() {
     </div>
   )
 }
+
 function ImageGrid() {
   const [repel, setRepel] = React.useState(false)
   const imagesData = React.useMemo(() => Array.from({ length: 10 }, (_, i) => ({
@@ -62,18 +65,31 @@ function ImageGrid() {
     </div>
   )
 }
+
 function WhatWeDo() {
   return (
     <div className="what-we-do">
       <motion.h2 initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} viewport={{ once: true }}>
         What We Do
       </motion.h2>
-      <p>
-        We streamline event scheduling, budget tracking, and reimbursement processing to reduce administrative overhead and improve efficiency at VJTI.
-      </p>
+      <div className="what-we-do-boxes">
+        <div className="what-box">
+          <h3>Event Management</h3>
+          <p>Digitally streamline scheduling and approvals for campus events, ensuring seamless coordination.</p>
+        </div>
+        <div className="what-box">
+          <h3>Budget Tracking</h3>
+          <p>Real-time insights into budgeting, expenditures, and planning, giving you full control.</p>
+        </div>
+        <div className="what-box">
+          <h3>Reimbursements</h3>
+          <p>Quick and transparent reimbursement processing to keep your finances in check.</p>
+        </div>
+      </div>
     </div>
   )
 }
+
 function GetStarted() {
   return (
     <div className="get-started">
@@ -86,6 +102,7 @@ function GetStarted() {
     </div>
   )
 }
+
 function Home() {
   return (
     <div>
@@ -98,6 +115,7 @@ function Home() {
     </div>
   )
 }
+
 function App() {
   return (
     <Router>
@@ -116,4 +134,5 @@ function App() {
     </Router>
   )
 }
+
 export default App
