@@ -1,42 +1,142 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  color: #333;
+  overflow-x: hidden;
+}
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgba(44, 62, 80, 0.9);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+.navbar-logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: #ecf0f1;
+  text-decoration: none;
+}
+.navbar-right {
+  display: flex;
+  gap: 20px;
+}
+.navbar-link {
+  position: relative;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: #ecf0f1;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+.navbar-link:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, #ff4d4d, #4d79ff, #ff4d4d);
+  background-size: 200%;
+  transition: transform 0.5s ease;
+  border-radius: 8px;
+  z-index: -1;
+}
+.navbar-link:hover {
+  color: #fff;
+}
+.navbar-link:hover:before {
+  transform: translateX(100%);
+  animation: gradientShift 1s linear infinite;
+}
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+.fixed-header {
+  position: fixed;
+  top: 60px;
+  width: 100%;
   text-align: center;
+  padding: 60px 0;
+  background: linear-gradient(90deg, #ff4d4d, #4d79ff);
+  z-index: 1;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.site-title {
+  margin: 0;
+  font-size: 42px;
+  font-weight: bold;
+  color: #fff;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.site-tagline {
+  margin: 10px 0 0 0;
+  font-size: 20px;
+  color: #f0f4f8;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.content {
+  position: relative;
+  z-index: 2;
+  margin-top: 200px;
+  padding: 20px;
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  padding: 50px 20px;
+  justify-items: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.grid-item {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
 }
-
-.card {
-  padding: 2em;
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
-
-.read-the-docs {
-  color: #888;
+.what-we-do {
+  text-align: center;
+  padding: 60px 20px;
+}
+.what-we-do h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+.what-we-do p {
+  font-size: 18px;
+  color: #4a4a4a;
+}
+.get-started {
+  text-align: center;
+  padding: 40px 20px;
+}
+.get-started button {
+  font-size: 20px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 12px;
+  background: #ff4d4d;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.get-started button:hover {
+  background: #4d79ff;
+  transform: scale(1.05);
 }
