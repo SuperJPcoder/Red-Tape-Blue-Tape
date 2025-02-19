@@ -14,7 +14,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <Link to="/" className="navbar-logo">Red-Tape-Blue-Tape</Link>
+        <Link to="/" className="navbar-tape"></Link>
       </div>
       <div className="navbar-right">
         <Link to="/events" className="navbar-link">Events</Link>
@@ -38,30 +38,32 @@ function FixedHeader() {
 }
 
 function ImageGrid() {
-  const [repel, setRepel] = React.useState(false)
-  const imagesData = React.useMemo(() => Array.from({ length: 10 }, (_, i) => ({
-    id: i,
-    delay: Math.random() * 1.5,
-    repulsion: { x: (Math.random() - 0.5) * 1500, y: (Math.random() - 0.5) * 1500 }
-  })), [])
+  const [scrolled, setScrolled] = React.useState(false)
   React.useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY > 300 && !repel) {
-        setRepel(true)
+    const handleScroll = () => {
+      if (window.scrollY > 150 && !scrolled) {
+        setScrolled(true)
       }
     }
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [repel])
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [scrolled])
+  const imagesData = React.useMemo(() => {
+    let arr = Array.from({ length: 10 }, (_, i) => ({
+      id: i,
+      delay: Math.random() * 2.5
+    }))
+    return arr.sort(() => Math.random() - 0.5)
+  }, [])
   return (
     <div className="image-grid">
       {imagesData.map(img => (
         <motion.div key={img.id} className="grid-item"
           initial={{ scale: 0, opacity: 0 }}
-          animate={repel ? { x: img.repulsion.x, y: img.repulsion.y, scale: 0, opacity: 0 } : { scale: 1, opacity: 1 }}
-          transition={repel ? { duration: 0.3 } : { delay: img.delay, duration: 0.5 }}
+          animate={scrolled ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+          transition={{ delay: img.delay, type: "spring", stiffness: 100 }}
         >
-          <img src={`https://picsum.photos/seed/${img.id}/100`} alt={`Random ${img.id + 1}`} />
+          <img src={`https://picsum.photos/seed/${img.id}/100`} alt={`Logo ${img.id + 1}`} />
         </motion.div>
       ))}
     </div>
@@ -69,21 +71,28 @@ function ImageGrid() {
 }
 
 function WhatWeDo() {
+  const handleMouseMove = (e) => {
+    const { left, top } = e.currentTarget.getBoundingClientRect()
+    const x = e.clientX - left
+    const y = e.clientY - top
+    e.currentTarget.style.setProperty('--x', `${x}px`)
+    e.currentTarget.style.setProperty('--y', `${y}px`)
+  }
   return (
-    <div className="what-we-do">
+    <div className="what-we-do" onMouseMove={handleMouseMove}>
       <motion.h2 initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} viewport={{ once: true }}>
         What We Do
       </motion.h2>
       <div className="what-we-do-boxes">
-        <div className="what-box">
+        <div className="what-box hover-overlay">
           <h3>Event Management</h3>
           <p>Digitally streamline scheduling and approvals for campus events, ensuring seamless coordination.</p>
         </div>
-        <div className="what-box">
+        <div className="what-box hover-overlay">
           <h3>Budget Tracking</h3>
           <p>Real-time insights into budgeting, expenditures, and planning, giving you full control.</p>
         </div>
-        <div className="what-box">
+        <div className="what-box hover-overlay">
           <h3>Reimbursements</h3>
           <p>Quick and transparent reimbursement processing to keep your finances in check.</p>
         </div>
@@ -96,6 +105,7 @@ function GetStarted() {
   return (
     <div className="get-started">
       <motion.button 
+        className="hover-overlay"
         whileHover={{ scale: 1.1, backgroundColor: "#ff4d4d", color: "#fff" }}
         transition={{ type: "spring", stiffness: 300 }}
       >
