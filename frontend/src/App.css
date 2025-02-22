@@ -92,7 +92,6 @@ body {
   text-align: center;
   padding: 60px 0;
   background: linear-gradient(90deg, #ffcccc, #cce0ff);
-  z-index: 1;
 }
 .site-title {
   margin: 0;
@@ -108,11 +107,9 @@ body {
 .content {
   position: relative;
   z-index: 2;
-  margin-top: 200px;
+  margin-top: 180px;
   padding: 20px;
   background: linear-gradient(135deg, #f8f9fa, #ffffff);
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
 }
 .image-grid {
   display: grid;
@@ -136,7 +133,6 @@ body {
   text-align: center;
   padding: 60px 20px;
   background: #ffffff;
-  border-radius: 20px;
   margin: 40px 0;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   position: relative;
@@ -173,7 +169,6 @@ body {
 .what-box {
   background: #fff;
   border: 1px solid #ddd;
-  border-radius: 15px;
   padding: 20px;
   width: 280px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -211,9 +206,11 @@ body {
   overflow: hidden;
 }
 .get-started button:hover {
-  background: #4d79ff;
+  background: #007bff;
   transform: scale(1.05);
+  transition: background 0.3s ease, transform 0.3s ease;
 }
+
 .hover-overlay {
   position: relative;
   overflow: hidden;

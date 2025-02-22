@@ -6,7 +6,7 @@ import { Events } from './Events'
 import { Budget } from './Budget'
 import { Reimbursements } from './Reimbursements'
 import { AdminDashboard } from './AdminDashboard'
-import { Login } from './Login'
+import Login from './Login'
 import { Permissions } from './Permissions'
 import { NotFound } from './NotFound'
 
@@ -106,7 +106,7 @@ function GetStarted() {
     <div className="get-started">
       <motion.button 
         className="hover-overlay"
-        whileHover={{ scale: 1.1, backgroundColor: "#ff4d4d", color: "#fff" }}
+        whileHover={{ scale: 1.1, backgroundColor: "#4d79ff", color: "#fff" }}
         transition={{ type: "spring", stiffness: 300 }}
       >
         Get Started

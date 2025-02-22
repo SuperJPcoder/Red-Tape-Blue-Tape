@@ -32,13 +32,11 @@ export function Permissions() {
     document.execCommand(command, false, null)
   }
   const handleHighlight = () => {
-    document.execCommand('backColor', false, 'yellow')
+    document.execCommand('backColor', false, 'lightyellow')
   }
   return (
     <div className="permissions-page">
-      <div className="club-logo-container">
-        <img src="https://picsum.photos/seed/clublogo/150" alt="Club Logo" className="club-logo" />
-      </div>
+      <h1 className="page-title">Permissions</h1>
       <div className="permission-form">
         <input 
           type="text" 
@@ -74,16 +72,10 @@ export function Permissions() {
               ))}
             </select>
             <div className="decision-buttons">
-              <motion.button 
-                whileHover={{ scale: 1.1 }} 
-                onClick={() => updateBox(box.id, 'decision', 'approved')}
-              >
-                Approve/Recommend
+              <motion.button whileHover={{ scale: 1.1 }} onClick={() => updateBox(box.id, 'decision', 'approved')}>
+                Approve
               </motion.button>
-              <motion.button 
-                whileHover={{ scale: 1.1 }} 
-                onClick={() => updateBox(box.id, 'decision', 'rejected')}
-              >
+              <motion.button whileHover={{ scale: 1.1 }} onClick={() => updateBox(box.id, 'decision', 'rejected')}>
                 Reject
               </motion.button>
             </div>
@@ -97,7 +89,7 @@ export function Permissions() {
           </div>
         ))}
         {availableRoles().length > 0 && (
-          <motion.button whileHover={{ scale: 1.1 }} className="add-box-button" onClick={addPermissionBox}>+</motion.button>
+          <motion.button whileHover={{ scale: 1.1 }} className="add-box-button" onClick={addPermissionBox}>Add Role</motion.button>
         )}
       </div>
     </div>
