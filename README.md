@@ -18,6 +18,7 @@ A web application to streamline student club management at <b>VJTI</b>, reducing
 - [🤝Contributing](#contributing)  
 
 </details>
+
 ---
 
 ## 📌Project Overview  
